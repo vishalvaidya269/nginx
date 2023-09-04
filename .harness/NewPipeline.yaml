@@ -27,13 +27,11 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: GitClone
-                  name: GitClone_1
-                  identifier: GitClone_1
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: account.Github_OAuth_1693812039869
-                    repoName: "1.3.3: Pulling from harness/drone-git  Digest: sha256:28d2e392f8e55be64975a49ebc7a985f470fd01f17763e1d59f033c27f1f0e8c  Status: Downloaded newer image for harness/drone-git:1.3.3  + git init  hint: Using 'master' as the name for the initial branch. This default branch name  hint: is subject to change. To configure the initial branch name to use in all  hint: of your new repositories, which will suppress this warning, call:  hint:   hint: \tgit config --global init.defaultBranch &lt;name>  hint:   hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and  hint: 'development'. The just-created branch can be renamed via this command:  hint:   hint: \tgit branch -m &lt;name>  Initialized empty Git repository in /harness/.git/  + git remote add origin https://github.com/git@github.com:vishalvaidya269/nginx.git  + set +x  + git fetch --depth=50 origin +refs/heads/master:  remote: Repository not found.  fatal: repository 'https://github.com/git@github.com:vishalvaidya269/nginx.git/' not found"
-                    build:
-                      type: branch
-                      spec:
-                        branch: Master
+                    connectorRef: account.harnessImage
+                    repo: vaidyavishal269/firstcode
+                    tags:
+                      - newtag
