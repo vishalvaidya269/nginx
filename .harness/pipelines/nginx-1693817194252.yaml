@@ -31,3 +31,27 @@ pipeline:
             type: Cloud
             spec: {}
         type: CI
+    - stage:
+        name: UploadArtifacts
+        identifier: UploadArtifacts
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: https://hub.docker.com/repositories/vaidyavishal269
+                    tags:
+                      - BuildCode
