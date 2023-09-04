@@ -32,3 +32,4 @@ pipeline:
                   identifier: Action_1
                   spec:
                     uses: git@github.com:vishalvaidya269/nginx.git
+                  description: build commit
