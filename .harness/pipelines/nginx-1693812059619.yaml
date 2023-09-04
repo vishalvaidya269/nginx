@@ -17,17 +17,27 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
-              - step:
-                  identifier: echo
-                  name: echo
-                  spec:
-                    command: echo hello world
-                  timeout: ""
-                  type: Run
+              - parallel:
+                  - step:
+                      identifier: echo
+                      name: echo
+                      spec:
+                        command: echo hello world
+                      timeout: ""
+                      type: Run
+                  - step:
+                      type: BuildAndPushDockerRegistry
+                      name: BuildAndPushDockerRegistry_1
+                      identifier: BuildAndPushDockerRegistry_1
+                      spec:
+                        connectorRef: account.harnessImage
+                        repo: vaidyavishal269
+                        tags:
+                          - buildimage
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
