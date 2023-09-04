@@ -1,0 +1,34 @@
+pipeline:
+  name: NewPipeline
+  identifier: NewPipeline
+  projectIdentifier: Project1
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1693812039869
+        repoName: git@github.com:vishalvaidya269/nginx.git
+        build: <+input>
+  stages:
+    - stage:
+        name: Test
+        identifier: Test
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Action
+                  name: Action_1
+                  identifier: Action_1
+                  spec:
+                    uses: git@github.com:vishalvaidya269/nginx.git
