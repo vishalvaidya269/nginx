@@ -1,0 +1,33 @@
+pipeline:
+  identifier: Build_nginx_1693812082548
+  name: Build nginx
+  orgIdentifier: default
+  projectIdentifier: Project1
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github_OAuth_1693812039869
+        repoName: vishalvaidya269/nginx
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
