@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_nginx_1693812082548-push-trigger-input-set
+  identifier: Build_nginx_1693812082548pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Project1
+  pipeline:
+    identifier: Build_nginx_1693812082548
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
