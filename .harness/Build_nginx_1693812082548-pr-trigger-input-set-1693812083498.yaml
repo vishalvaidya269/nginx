@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_nginx_1693812082548-pr-trigger-input-set
+  identifier: Build_nginx_1693812082548prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Project1
+  pipeline:
+    identifier: Build_nginx_1693812082548
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
