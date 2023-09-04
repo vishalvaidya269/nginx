@@ -17,23 +17,14 @@ pipeline:
           cloneCodebase: true
           execution:
             steps:
-              - parallel:
-                  - step:
-                      identifier: echo
-                      name: echo
-                      spec:
-                        command: echo hello world
-                      timeout: ""
-                      type: Run
-                  - step:
-                      type: BuildAndPushDockerRegistry
-                      name: BuildAndPushDockerRegistry_1
-                      identifier: BuildAndPushDockerRegistry_1
-                      spec:
-                        connectorRef: account.harnessImage
-                        repo: vaidyavishal269
-                        tags:
-                          - buildimage
+              - step:
+                  identifier: echo
+                  name: echo pipeline
+                  spec:
+                    shell: Sh
+                    command: echo "Pipeline Created"
+                  timeout: ""
+                  type: Run
           platform:
             os: Linux
             arch: Amd64
