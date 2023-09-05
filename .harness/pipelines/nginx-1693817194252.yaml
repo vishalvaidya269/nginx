@@ -62,6 +62,7 @@ pipeline:
                       identifier: Run_2
                       spec:
                         shell: Sh
-                        command: |-
+                        command: |
                           ls -lrth
                           pwd
+                          ls -lrth /harness/conf/
