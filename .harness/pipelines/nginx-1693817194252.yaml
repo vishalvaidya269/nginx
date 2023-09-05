@@ -46,12 +46,22 @@ pipeline:
             spec: {}
           execution:
             steps:
-              - step:
-                  type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
-                  spec:
-                    connectorRef: account.harnessImage
-                    repo: https://hub.docker.com/repositories/vaidyavishal269
-                    tags:
-                      - BuildCode
+              - parallel:
+                  - step:
+                      type: BuildAndPushDockerRegistry
+                      name: BuildAndPushDockerRegistry_1
+                      identifier: BuildAndPushDockerRegistry_1
+                      spec:
+                        connectorRef: account.harnessImage
+                        repo: https://hub.docker.com/repositories/vaidyavishal269
+                        tags:
+                          - BuildCode
+                  - step:
+                      type: Run
+                      name: Run_2
+                      identifier: Run_2
+                      spec:
+                        shell: Sh
+                        command: |-
+                          ls -lrth
+                          pwd
